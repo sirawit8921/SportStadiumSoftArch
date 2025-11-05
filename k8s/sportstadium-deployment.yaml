@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sportstadium-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sportstadium-api
+  template:
+    metadata:
+      labels:
+        app: sportstadium-api
+    spec:
+      containers:
+        - name: sportstadium-api
+          image: sportstadium-api:v2
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5003
+          envFrom:
+            - configMapRef:
+                name: sportstadium-env
+          env:
+            - name: RABBITMQ_URL
+              value: "amqp://admin:1234@rabbitmq:5672"
