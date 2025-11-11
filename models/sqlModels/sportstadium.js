@@ -8,10 +8,6 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      sportType: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       address: {
         type: DataTypes.STRING,
       },
@@ -28,12 +24,6 @@ module.exports = (sequelize) => {
       facilities: {
         type: DataTypes.JSON,
         defaultValue: [],
-      },
-      openTime: {
-        type: DataTypes.STRING,
-      },
-      closeTime: {
-        type: DataTypes.STRING,
       },
       createdAt: {
         type: DataTypes.DATE,
